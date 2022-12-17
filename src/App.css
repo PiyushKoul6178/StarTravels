@@ -1,38 +1,516 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap");
+.navbar-container {
+  width: 100%;
+  height: 5em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #8b3eea;
+}
+.navbar-container .logo-image {
+  position: relative;
+  height: 4.2em;
+  margin-left: 5%;
+  margin-top: 0.3%;
+  width: 5em;
+}
+.navbar-container .logoname {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  align-self: center;
+  font-size: 24px;
+}
+.navbar-container .links-container {
+  width: 45%;
+  height: 2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  align-self: center;
+  position: relative;
+  margin-left: 5em;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+}
+.navbar-container .links-container .links {
+  align-self: center;
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+  font-size: 18px;
+  font-family: "roboto", sans-serif;
+  padding: 5px;
+  margin-right: 4%;
+  position: relative;
+  color: white;
+  text-decoration: none;
+}
+.navbar-container .links-container .links:hover{
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.borderXwidth a:before,
+.borderXwidth a:after {
+  position: absolute;
+  opacity: 0;
+  width: 0%;
+  height: 2px;
+  content: "";
+  background: #fff;
+  transition: all 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.borderXwidth a:before {
+  left: 0px;
+  top: 0px;
+}
+
+.borderXwidth a:after {
+  right: 0px;
+  bottom: 0px;
+}
+
+.borderXwidth a:hover:before,
+.borderXwidth a:hover:after {
+  opacity: 1;
+  width: 100%;
+}
+.navbar-container .search-icon-div {
+  align-self: center;
+}
+.navbar-container .navbar-button {
+  margin-left: 5%;
+  align-self: center;
+  color: white;
+  border: 1px white solid;
+  height: 2.5em;
+  width: 12%;
+}
+
+.navbar-container .navbar-button:hover {
+  color: #8b3eea;
+  background-color: white;
+}
+/* content.jsx */
+.content-main {
+  height: 48em;
+  width: 100%;
+  background-image: url("./assets/banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 20%;
+}
+.content-main .main-heading {
+  color: white;
+  text-align: center;
+  font-family: "roboto", sans-serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 90px;
+}
+.content-main .sub-heading {
+  font-family: "roboto", sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 300;
+}
+.main-container {
+  height: 16em;
+  width: 100%;
+  position: relative;
+  background-color: white;
+}
+.main-container .search-div {
+  background-color: white;
+  height: 20em;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 20px;
+  width: 95%;
+  bottom: 36%;
+  box-shadow: 4px 14px 28px rgb(0 0 0 / 10%);
+  padding-top: 2%;
+}
+.route-buttons {
+  position: relative;
+  width: 100%;
+  height: 3em;
+  display: flex;
+  flex-wrap: nowrap;
+  padding-left: 1%;
+}
+.switch-buttons {
+  background-color: white;
+  border: 2px #8b3eea solid;
+  height: 2.5em;
+  border-radius: 6px;
+  margin-left: 3%;
+  width: 8%;
+  display: flex;
+  transition: 0.2s ease-in-out;
+}
+.switch-buttons:hover,
+.switch-buttons:active,
+.switch-buttons:focus {
+  background-color: #8b3eea;
+  color: white;
+}
+.switch-buttons .button-heading {
+  align-self: center;
+  margin-left: 12%;
+}
+.switch-buttons .button-icon {
+  align-self: center;
+  margin-left: 13%;
+  margin-top: 3%;
+}
+.input-container {
+  display: flex;
+  height: 12em;
+  width: 100%;
+  padding-left: 3%;
+}
+.from-div {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 22%;
+  height: 10em;
+  background-color: #8b3eea17;
+  padding: 1%;
+  border-radius: 10px;
+}
+.from-div-head1 {
+  font-size: 14px;
+  margin-top: 7%;
+  font-family: "roboto", sans-serif;
+}
+.from-head1-icon {
+  margin-left: 6em;
+  font-size: 21px;
+  position: relative;
+  top: 0.5em;
+}
+.from-div-input {
+  margin-top: 8%;
+  border: none;
+  background-color: transparent;
+  width: 90%;
+}
+.from-div-input:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+}
+.from-div-input:focus::placeholder {
+  color: transparent;
+}
+.to-div {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 22%;
+  height: 10em;
+  background-color: #8b3eea17;
+  padding: 1%;
+  border-radius: 10px;
+  position: relative;
+  left: -1.7%;
+}
+.to-div-head1 {
+  font-size: 14px;
+  margin-top: 7%;
+  font-family: "roboto", sans-serif;
+}
+.to-head1-icon {
+  margin-left: 6em;
+  font-size: 21px;
+  position: relative;
+  top: 0.5em;
+}
+.to-div-input {
+  margin-top: 8%;
+  border: none;
+  background-color: transparent;
+  width: 90%;
+}
+.to-div-input:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+}
+.to-div-input:focus::placeholder {
+  color: transparent;
+}
+.icon-div {
+  align-self: center;
+  background: #f5eefd;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 46px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  position: relative;
+  left: -1%;
+  z-index: 10;
+}
+.date-div {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 22%;
+  height: 10em;
+  background-color: #8b3eea17;
+  padding: 1%;
+  border-radius: 10px;
+}
+.date-div-head1 {
+  font-size: 14px;
+  font-family: "roboto", sans-serif;
+  margin-top: 6%;
+}
+.date-div-input {
+  margin-top: 8%;
+  border: none;
+  background-color: transparent;
+}
+.date-div-input:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+}
+.date-div-input:focus::placeholder {
+  color: transparent;
+}
+.passenger-div{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 25%;
+  height: 10em;
+  background-color: #8b3eea17;
+  padding: 1%;
+  position: relative;
+  border-radius: 10px;
+  left: 1.7%;
+  border: none;
+}
+.passenger-div:focus{
+  outline: none;
+}
+.passenger-div .passenger-div-head{
+  font-size: 14px;
+  font-family: "roboto", sans-serif;
+  margin-top: 5%;
+}
+.passenger-div .passenger-div-passengercount{
+  font-size: 16px;
+  margin-top: 5%;
+}
+.passenger-div .passenger-div-cabin{
+  font-size: 16px;
+  margin-top: 5%;
+}
+#collapse-div{
+  background-color: white;
+  position: absolute;
+  left: 43em;
+  top: 13.5em;
+  border: 1px solid #8b3eea;
+  width: 19em;
+  border-radius: 10px;
+  padding-top: 1%;
+  padding-left: 2%;
+  z-index: 2;
+}
+.collapse-div-1 .plus-icon{
+  margin-left: 8em;
+}
+.collapse-div-1 .minus-icon{
+  margin-left: 1em;
+}
+.collapse-div-2 .plus-icon{
+  margin-left: 7.1em;
+}
+.collapse-div-2 .minus-icon{
+  margin-left: 1em;
+}
+.collapse-div-3 .plus-icon{
+  margin-left: 8.2em;
+}
+.collapse-div-3 .minus-icon{
+  margin-left: 1em;
+}
+.cabin-select-button1{
+  background: none;
+  border: none;
+  position: relative;
+  bottom: 1em;
+  width: 91%;
+  height: 2.5em;
+  transition: .3s ease-in-out;
+}
+.cabin-select-button1:hover{
+  background-color: #8b3eea;
+  color: white;
+}
+.cabin-select-button1:active{
+  background-color: #8b3eea;
+  color: white;
+}
+.cabin-select-button2{
+  background: none;
+  border: none;
+  position: relative;
+  bottom: 1em;
+  width: 91%;
+  height: 2.5em;
+  transition: .3s ease-in-out;
+}
+.cabin-select-button2:hover{
+  background-color: #8b3eea;
+  color: white;
+}
+.cabin-select-button3{
+  background: none;
+  border: none;
+  position: relative;
+  bottom: 1em;
+  width: 91%;
+  height: 2.5em;
+  transition: .3s ease-in-out;
+}
+.cabin-select-button3:hover{
+  background-color: #8b3eea;
+  color: white;
+}
+.category {
+  display: flex;
+  flex-direction: column;
+}
+.category h5 {
+  color: #8b3eea;
+  margin-left: 2em;
+}
+.category button {
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  margin-left: 2em;
+  margin-right: 2em;
+  height: 3em;
+  transition: 0.3s ease-in-out;
+}
+.category button:hover,
+.category button:active {
+  background-color: #8b3eea;
+  color: white;
+}
+.flight-search-button-div {
+  text-decoration: none;
+  border: 2px solid #8b3eea;
+  border-radius: 6px;
+  height: 2.1em;
+  width: 9em;
+  text-align: center;
+  background: transparent;
+  position: relative;
+  margin: auto;
+  transition: 0.2s ease-in-out;
+}
+.flight-search-button-div:hover{
+  background-color: #8b3eea;
+}
+.flight-search-button-div:hover .flight-search-link{
+  color: white;
+  text-decoration: none;
+}
+.flight-search-button-div:hover .update-search-button{
+  color: white;
+  text-decoration: none;
+}
+.flight-search-link{
+  color: black;
+  text-decoration: none;
+}
+
+.container {
+  padding: 2rem 0rem;
+}
+.modal-dialog {
+  max-width: 400px;
+}
+.modal-dialog .modal-content {
+  padding: 1rem;
+  height: 28em;
+}
+.modal-header .close {
+  margin-top: -1.5rem;
+}
+
+.form-title {
+  margin: -2rem 0rem 2rem;
+}
+
+.btn-round {
+  border-radius: 3rem;
+}
+
+.signup-section {
+  padding: 0.3rem 0rem;
+}
+.login-button-modal {
+  background-color: #8b3eea;
+  margin-top: 3em;
+}
+#password1 {
+  margin-top: 2.7em;
+}
+#password2{
+  margin-top:1em;
+}
+.signup-button {
+  padding: 0;
+  border: none;
+  background: none;
+  color: blue;
+  text-decoration: underline;
+}
+#error-login{
+  text-align: left;
+  margin-left: 0.7em;
+  position: relative;
+  font-size: 13px;
+  margin-bottom: 0px;
+  bottom: 0.9em;
+}
+#error-signup{
+  text-align: left;
+  margin-left: 0.7em;
+  position: relative;
+  font-size: 13px;
+  margin-bottom: 0px;
+  bottom: 0.9em;
+}
+.update-search-button{
+  border: none;
+  background: none;
+	outline: inherit;
+}
+.update-search-button:focus,:active{
+  border: none;
+  background:none;
+	outline: inherit;
+}
+.result-container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.searched-divs-items{
+  margin: auto;
+  background-color: #8b3eea17;
+  border: 1px solid blue;
+  border-radius: 10px;
+  width: 90%;
+  height: 12em;
 }
