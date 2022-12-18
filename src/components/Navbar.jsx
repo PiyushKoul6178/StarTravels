@@ -78,12 +78,9 @@ class Navbar extends Component {
           <div
             className="modal fade"
             id="loginModal"
-            tabIndex="-1"
             role="dialog"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
           >
-            <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-dialog modal-dialog-centered">
               <div className="modal-content">
                 <div className="modal-header border-bottom-0">
                   <button

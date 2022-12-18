@@ -4,7 +4,6 @@ import "../App.css";
 import FlightSearchButton from "./FlightSearchButton";
 import Content from "./Content";
 import axios from "axios";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 class SearchedFlights extends Component {
   state = {
     flight: true,
@@ -247,10 +246,10 @@ class SearchedFlights extends Component {
     let searcheddivs = this.state.search.map((data) => {
       return (
         <div className="searched-divs-items">
-          <div></div>
-          <div><span>{data.CityCode}&nbsp;{data.CityName}</span><span>{data.Layover}</span><span>{data.ToCityCode}&nbsp;{data.ToCityName}</span></div>
-          <div><span>{data.DepartTime}</span><span>{data.JourneyTime}</span><span>{data.ArrivalTime}</span></div>
-          <div><span>{data.Layover}</span><button>Book Now</button></div>
+          <div>Hi</div>
+          <div className="item-2"><span style={{marginRight:"8em",fontSize:"15px"}}>{data.CityCode}&nbsp;{data.CityName}</span><span style={{marginRight:"8em",fontSize:"15px"}}>-&emsp;&emsp;{data.Layover}&emsp;&emsp;-</span><span style={{fontSize:"15px"}}>{data.ToCityCode}&nbsp;{data.ToCityName}</span></div>
+          <div className="item-3"><span style={{fontWeight:"620",fontSize:"23px",marginRight:"6.3em"}}>{data.DepartTime}</span><span style={{fontWeight:"bold",fontSize:"15px",marginRight:"8.2em"}}>{data.JourneyTime}</span><span style={{fontWeight:"620",fontSize:"23px"}}>{data.ArrivalTime}</span><button>Book Now</button></div>
+          <div><span>{data.Layover}</span></div>
         </div>
       );
     });
